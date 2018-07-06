@@ -4555,7 +4555,7 @@ nl80211_scan_common(struct wpa_driver_nl80211_data *drv, u8 cmd,
 	else
 		NLA_PUT_U64(msg, NL80211_ATTR_WDEV, *wdev_id);
 
-	if (params->num_ssids) {
+	if (params->num_ssids && params->ssids[0].ssid_len) {
 		struct nlattr *ssids;
 
 		ssids = nla_nest_start(msg, NL80211_ATTR_SCAN_SSIDS);
